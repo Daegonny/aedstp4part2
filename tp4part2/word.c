@@ -10,6 +10,7 @@ struct WORD* createWord(char string[50], struct NUMBER* line){
     struct WORD *word = (struct WORD*) malloc(sizeof(struct WORD));
     copyString(string, (*word).string);
     (*word).line = line;
+    (*word).next = NULL;
     return word;
 }
 
@@ -34,7 +35,6 @@ void readWordFromFile(FILE *fp, struct LIST *list){
                 chars[i] = '\0';
                 if(!isStringEmpty(chars, i)){
                     addToList(createWord(chars, createNumber(line)), list);
-                    //pushQueue(createWord(chars, i, line), queue);
                 }
                 if(c == '\n')
                 line++;
@@ -46,7 +46,13 @@ void readWordFromFile(FILE *fp, struct LIST *list){
 }
 
 void printWord(struct WORD *word){
-    printf("%s",(*word).string );
+    if(word != NULL){
+        printf("%s\n",(*word).string);
+    }
+    else{
+        printf("nao deu bom!\n");
+    }
+
     //escrever as linhas também
 }
 // códigos ascii para números e letras maiúsculas/minúsculas
