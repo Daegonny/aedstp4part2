@@ -1,18 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "word.h"
-#include "queue.h"
+#include "number.h"
 #define SPACE 30 //espaço para imprimir na tela
 #define TAMSTRING 50 //tamanho máximo da string
 
-struct WORD createWord(char string[50], int length, int line){
-    struct WORD word;
-    copyString(string, word.string);
-    word.length = length;
-    word.line = line;
+struct WORD* createWord(char string[50], struct NUMBER* line){
+    struct WORD *word = (struct WORD*) malloc(sizeof(struct WORD));
+    copyString(string, (*word).string);
+    (*word).line = line;
     return word;
 }
 
-void readWordFromFile(FILE *fp, struct QUEUE *queue){
+int compareWord(struct WORD *wordOne, struct WORD *wordTwo){
+    return strcmp((*wordOne).string, (*wordTwo).string); //0 = igual.
+}
+
+void readWordFromFile(FILE *fp, struct LIST *list){
     if(fp == NULL){
         printf("%s\n", "Fail to open file!");
     }
@@ -28,6 +33,7 @@ void readWordFromFile(FILE *fp, struct QUEUE *queue){
             else{
                 chars[i] = '\0';
                 if(!isStringEmpty(chars, i)){
+                    addToList(createWord(chars, createNumber(line)), list);
                     //pushQueue(createWord(chars, i, line), queue);
                 }
                 if(c == '\n')
@@ -39,13 +45,9 @@ void readWordFromFile(FILE *fp, struct QUEUE *queue){
     }
 }
 
-void printWord(struct WORD word){
-    int i = 0;
-    //printf("%s",word.string );
-    //for(i = (SPACE - word.length); i > 0; i--){
-    //    printf(" ");
-    //}
-    //printf("%d\n", word.line);
+void printWord(struct WORD *word){
+    printf("%s",(*word).string );
+    //escrever as linhas também
 }
 // códigos ascii para números e letras maiúsculas/minúsculas
 int isValidChar(char c){

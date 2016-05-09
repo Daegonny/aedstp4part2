@@ -1,20 +1,24 @@
 #ifndef _WORD_H
 #define _WORD_H
-#include "queue.h"
+#include "list.h"
+#include "number.h"
 #define TAMSTRING 50 //tamanho máximo da string
 
 typedef struct WORD //estrutura palavra
 {
     char string[TAMSTRING]; //cadeia de caracteres da palavra
-    int length; //comprimento
-    int line; //linha do texto que a palavra se encontra
+    struct NUMBER* line; //linhas em que a palavra ocorre
+    struct WORD* next; //proxima palavra
 }WORD;
 
 //cria nova palavra
-struct WORD createWord(char string[TAMSTRING], int length, int line);
+struct WORD* createWord(char string[TAMSTRING], struct NUMBER* line);
 
-//lê palavras num arquivo e as enfileira numa fila
-void readWordFromFile(FILE *fp, struct QUEUE *queue);
+//compara duas palavras
+int compareWord(struct WORD *wordOne, struct WORD *wordTwo);
+
+//lê palavras num arquivo e adiciona em uma lista
+void readWordFromFile(FILE *fp, struct LIST *list);
 
 //imprime uma palavra e sua posição na tela
 void printWord(struct WORD *word);

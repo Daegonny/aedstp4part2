@@ -1,6 +1,6 @@
 CC = gcc
 FLAGS = #-Wall -g
-FONTES = number.c queue.c word.c main.c
+FONTES = number.c list.c word.c main.c
 OBJETOS = $(FONTES: .c = .o)
 
 objetos : $(FONTES)

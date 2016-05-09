@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "number.h"
 #include "word.h"
-#include "queue.h"
+#include "list.h"
 
 int main(int argc, char const *argv[]) {
 
