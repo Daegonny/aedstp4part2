@@ -70,8 +70,8 @@ void buildIndex(FILE *fp, struct LIST *index, struct LIST *blackList){
                             addNumber((*wordInIndex).line, (*currentWord).line);
                         }
                         else{
+                            //addToList(currentWord, index);
                             addInOrderToList(currentWord, index);
-                            //addInOrderToList(currentWord, index);
                         }
                     }
                 }

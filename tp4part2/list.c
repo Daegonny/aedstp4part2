@@ -56,16 +56,24 @@ void addInOrderToList(struct WORD *word, struct LIST *list){
     if(isEmptyList(list)){
         (*word).next = NULL;
         (*list).words = word;
+    }
+    else if(compareWord(word, aux) < 0){
+        struct WORD *it = aux;
+        (*list).words = word;
+        (*word).next = it;
 
     }
     else{
-        while((*aux).next != NULL && (compareWord(word ,(*aux).next) > 0)){
-            aux = (*aux).next;
-        }
-        struct WORD *it = aux;
-        aux = word;
-        (*word).next == it;
+        // struct WORD *it = aux;
+        //     printf("%s < %s = %d\n", (*word).string, (*it).string, compareWord(word, it));
+        //
+        // while((*aux).next != NULL && compareWord(word, (*aux).next) > 0){
+        //     printf("entrou aqui \n");
+        //     aux = (*aux).next;
+        // }
 
+        //(*aux).next = word;
+        //printList(list);
     }
 }
 
