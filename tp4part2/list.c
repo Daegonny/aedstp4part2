@@ -64,16 +64,12 @@ void addInOrderToList(struct WORD *word, struct LIST *list){
 
     }
     else{
-        // struct WORD *it = aux;
-        //     printf("%s < %s = %d\n", (*word).string, (*it).string, compareWord(word, it));
-        //
-        // while((*aux).next != NULL && compareWord(word, (*aux).next) > 0){
-        //     printf("entrou aqui \n");
-        //     aux = (*aux).next;
-        // }
-
-        //(*aux).next = word;
-        //printList(list);
+        while((*aux).next != NULL && compareWord(word, (*aux).next) > 0){
+             aux = (*aux).next;
+        }
+        struct WORD *it = (*aux).next;
+        (*aux).next = word;
+        (*word).next = it;
     }
 }
 

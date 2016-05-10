@@ -11,7 +11,7 @@ int main(int argc, char const *argv[]) {
 
     FILE *fp;
     char blPath[] = "blackList.txt";
-    char ixPath[] = "teste.txt";
+    char ixPath[] = "plato.txt";
 
     fp = fopen(blPath, "r+");
     buildBlackList(fp, blackList);
