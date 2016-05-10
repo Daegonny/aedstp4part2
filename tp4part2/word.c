@@ -16,7 +16,7 @@ struct WORD* createWord(char string[50], struct NUMBER* line){
 }
 
 int compareWord(struct WORD *wordOne, struct WORD *wordTwo){
-    return strcmp((*wordOne).string, (*wordTwo).string); //0 = igual.
+    return strcasecmp((*wordOne).string, (*wordTwo).string); //0 = igual.
 }
 
 void buildBlackList(FILE *fp, struct LIST *blackList){

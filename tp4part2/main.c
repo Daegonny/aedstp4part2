@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "number.h"
 #include "word.h"
 #include "list.h"
@@ -11,7 +12,7 @@ int main(int argc, char const *argv[]) {
 
     FILE *fp;
     char blPath[] = "blackList.txt";
-    char ixPath[] = "plato.txt";
+    char ixPath[] = "kant.txt";
 
     fp = fopen(blPath, "r+");
     buildBlackList(fp, blackList);
