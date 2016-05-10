@@ -17,8 +17,11 @@ struct WORD* createWord(char string[TAMSTRING], struct NUMBER* line);
 //compara duas palavras
 int compareWord(struct WORD *wordOne, struct WORD *wordTwo);
 
-//lê palavras num arquivo e adiciona em uma lista
-void readWordFromFile(FILE *fp, struct LIST *list);
+//constroi lista negra
+void buildBlackList(FILE *fp, struct LIST *blackList);
+
+//constori índice
+void buildIndex(FILE *fp, struct LIST *index, struct LIST *blackList);
 
 //imprime uma palavra e sua posição na tela
 void printWord(struct WORD *word);

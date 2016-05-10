@@ -27,7 +27,7 @@ int isEmptyList(struct LIST *list){
 struct WORD* isInList(struct WORD *word, struct LIST *list){
     struct WORD *result = NULL;
     struct WORD *aux = (*list).words;
-    while(aux != NULL && result == NULL){
+    while((*aux).next != NULL && result == NULL){
         if(compareWord(word, aux) == 0)
             result = aux;
         aux = (*aux).next;
@@ -38,17 +38,24 @@ struct WORD* isInList(struct WORD *word, struct LIST *list){
 //insere palavra na lista
 void addToList(struct WORD *word, struct LIST *list){
     struct WORD *aux = (*list).words;
-    while(aux != NULL){
-        aux = (*aux).next;
+    if(isEmptyList(list)){
+        (*list).words = word;
     }
-    (*aux).next = word;
+    else{
+        while((*aux).next != NULL){
+            aux = (*aux).next;
+        }
+        (*aux).next = word;
+    }
 }
+
+//void addInOrderToList
 
 //remove palavra na lista
 void removeFromList(struct LIST *list, struct WORD *word){
     struct WORD *aux = (*list).words;
     struct WORD *it = NULL;
-    while(aux != NULL && it == NULL){
+    while((*aux).next != NULL && it == NULL){
         if(compareWord(word, (*aux).next) == 0){
             it = (*aux).next;
         }

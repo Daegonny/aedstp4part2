@@ -9,13 +9,12 @@ int main(int argc, char const *argv[]) {
     struct LIST* blackList = createList();
 
     FILE *fp;
-    char path[] = "blackList.txt"; //define o arquivo de texto
+    char path[] = "blackList.txt";
     fp = fopen(path, "r+"); //abre o arquivo de texto
 
-    readWordFromFile(fp, blackList);
+    buildBlackList(fp, blackList);
+    //printList(blackList);
 
-    printList(blackList);
-    printf("\n\n");
     //printWord(isInList(createWord("pipoca", NULL), blackList));
 
     fclose(fp); //fecha arquivo
