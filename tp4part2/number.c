@@ -12,6 +12,7 @@ struct NUMBER* createNumber(int value){
 void printNumber(struct NUMBER* number){
     while (number != NULL) {
         printf("%d, ", (*number).value);
+        number = (*number).next;
     }
 }
 

@@ -21,6 +21,9 @@ struct WORD* isInList(struct WORD *word, struct LIST *list);
 //insere palavra na lista
 void addToList(struct WORD *word, struct LIST *list);
 
+//insere palavra em ordem alfabética na lista
+void addInOrderToList(struct WORD *word, struct LIST *list);
+
 //remove palavra na lista
 void removeFromList(struct LIST *list, struct WORD *word);
 

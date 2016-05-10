@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include <string.h>
 #include "word.h"
 #include "number.h"
@@ -69,7 +70,8 @@ void buildIndex(FILE *fp, struct LIST *index, struct LIST *blackList){
                             addNumber((*wordInIndex).line, (*currentWord).line);
                         }
                         else{
-                            
+                            addInOrderToList(currentWord, index);
+                            //addInOrderToList(currentWord, index);
                         }
                     }
                 }
@@ -84,12 +86,10 @@ void buildIndex(FILE *fp, struct LIST *index, struct LIST *blackList){
 
 void printWord(struct WORD *word){
     if(word != NULL){
-        printf("%s\n",(*word).string);
+        printf("%s: ",(*word).string);
     }
-    else{
-        printf("nao deu bom!\n");
-    }
-
+    printNumber((*word).line);
+    printf("\n");
     //escrever as linhas também
 }
 // códigos ascii para números e letras maiúsculas/minúsculas

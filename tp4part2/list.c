@@ -26,11 +26,13 @@ int isEmptyList(struct LIST *list){
 //checa se palavra se encontra na lista
 struct WORD* isInList(struct WORD *word, struct LIST *list){
     struct WORD *result = NULL;
-    struct WORD *aux = (*list).words;
-    while((*aux).next != NULL && result == NULL){
-        if(compareWord(word, aux) == 0)
-            result = aux;
-        aux = (*aux).next;
+    if(!isEmptyList(list)){
+        struct WORD *aux = (*list).words;
+        while(aux != NULL && result == NULL){
+            if(compareWord(word, aux) == 0)
+                result = aux;
+            aux = (*aux).next;
+        }
     }
     return result;
 }
@@ -49,7 +51,23 @@ void addToList(struct WORD *word, struct LIST *list){
     }
 }
 
-//void addInOrderToList
+void addInOrderToList(struct WORD *word, struct LIST *list){
+    struct WORD *aux = (*list).words;
+    if(isEmptyList(list)){
+        (*word).next = NULL;
+        (*list).words = word;
+
+    }
+    else{
+        while((*aux).next != NULL && (compareWord(word ,(*aux).next) > 0)){
+            aux = (*aux).next;
+        }
+        struct WORD *it = aux;
+        aux = word;
+        (*word).next == it;
+
+    }
+}
 
 //remove palavra na lista
 void removeFromList(struct LIST *list, struct WORD *word){

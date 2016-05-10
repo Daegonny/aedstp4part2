@@ -7,16 +7,20 @@
 int main(int argc, char const *argv[]) {
 
     struct LIST* blackList = createList();
+    struct LIST* index = createList();
 
     FILE *fp;
-    char path[] = "blackList.txt";
-    fp = fopen(path, "r+"); //abre o arquivo de texto
+    char blPath[] = "blackList.txt";
+    char ixPath[] = "teste.txt";
 
+    fp = fopen(blPath, "r+");
     buildBlackList(fp, blackList);
     //printList(blackList);
+    fclose(fp);
 
-    //printWord(isInList(createWord("pipoca", NULL), blackList));
-
-    fclose(fp); //fecha arquivo
+    fp = fopen(ixPath, "r+");
+    buildIndex(fp, index, blackList);
+    printList(index);
+    fclose(fp);
     return 0;
 }
