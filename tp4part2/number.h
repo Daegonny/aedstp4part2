@@ -12,6 +12,8 @@ struct NUMBER* createNumber(int value);
 //imprime os números
 void printNumber(struct NUMBER* number);
 
+void printNumberInFile(struct NUMBER* number, FILE *fp);
+
 void addNumber(struct NUMBER* number, struct NUMBER* next);
 
 #endif

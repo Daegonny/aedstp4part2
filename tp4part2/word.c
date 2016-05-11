@@ -90,8 +90,21 @@ void printWord(struct WORD *word){
     }
     printNumber((*word).line);
     printf("\n");
-    //escrever as linhas também
 }
+
+void printWordInFile(struct WORD *word, FILE* fp){
+    if (fp != NULL) {
+        if(word != NULL){
+            fprintf(fp, "%s: ",(*word).string);
+        }
+        printNumberInFile((*word).line, fp);
+        fprintf(fp, "\n");
+    }
+    else{
+        printf("Falha ao escrever em arquivo!\n");
+    }
+}
+
 // códigos ascii para números e letras maiúsculas/minúsculas
 int isValidChar(char c){
     return

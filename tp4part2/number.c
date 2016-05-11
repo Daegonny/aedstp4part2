@@ -20,6 +20,22 @@ void printNumber(struct NUMBER* number){
     }
 }
 
+void printNumberInFile(struct NUMBER* number, FILE* fp){
+    if(fp != NULL){
+        if(number != NULL){
+            fprintf(fp, "%d", (*number).value);
+            number = (*number).next;
+            while (number != NULL) {
+                fprintf(fp, ", %d", (*number).value);
+                number = (*number).next;
+            }
+        }
+    }
+    else{
+        printf("Falha ao escrever em arquivo!\n");
+    }
+}
+
 void addNumber(struct NUMBER* number, struct NUMBER* next){
     while ((*number).next != NULL ){
         number = (*number).next;

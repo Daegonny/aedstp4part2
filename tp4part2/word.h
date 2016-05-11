@@ -26,6 +26,8 @@ void buildIndex(FILE *fp, struct LIST *index, struct LIST *blackList);
 //imprime uma palavra e sua posição na tela
 void printWord(struct WORD *word);
 
+void printWordInFile(struct WORD *word, FILE* fp);
+
 //checa se um caractere é valido
 int isValidChar(char c);
 

@@ -18,6 +18,19 @@ void printList(struct LIST *list){
     }
 }
 
+void printListInFile(struct LIST *list, FILE *fp){
+    if(fp != NULL){
+        struct WORD *aux = (*list).words;
+        while(aux != NULL){
+            printWordInFile(aux, fp);
+            aux = (*aux).next;
+        }
+    }
+    else{
+        printf("Falha ao escrever em arquivo!\n");
+    }
+}
+
 //checa se a lista está vazia
 int isEmptyList(struct LIST *list){
     return (*list).words == NULL;

@@ -12,6 +12,8 @@ struct LIST* createList();
 //imprime as palavras da lista à medida que a esvazia
 void printList(struct LIST *list);
 
+void printListInFile(struct LIST *list, FILE *fp);
+
 //checa se a lista está vazia
 int isEmptyList(struct LIST *list);
 
