@@ -108,7 +108,7 @@ void printWordInFile(struct WORD *word, FILE* fp){
 // códigos ascii para números e letras maiúsculas/minúsculas
 int isValidChar(char c){
     return
-        (c >= 48 && c <= 57) ||
+        //(c >= 48 && c <= 57) ||
         (c >= 65 && c <= 90) ||
         (c >= 97 && c <= 122);
 }
